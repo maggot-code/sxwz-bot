@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2023-09-18 10:16:19
  * @LastEditors: maggot-code
- * @LastEditTime: 2023-09-19 02:43:23
+ * @LastEditTime: 2023-09-19 04:36:01
  * @Description:
  */
 package gateway
@@ -30,9 +30,16 @@ type Gateway struct {
 }
 
 func NewGateway(c *conf.Bootstrap) *Gateway {
-	botToken := token.BotToken(uint64(c.Bot.Appid), c.Bot.Token)
-	api := botgo.NewSandboxOpenAPI(botToken).WithTimeout(3 * time.Second)
+	var api openapi.OpenAPI
+
 	ctx := context.Background()
+	botToken := token.BotToken(uint64(c.Bot.Appid), c.Bot.Token)
+
+	if c.App.Sandbox {
+		api = botgo.NewSandboxOpenAPI(botToken).WithTimeout(3 * time.Second)
+	} else {
+		api = botgo.NewOpenAPI(botToken).WithTimeout(3 * time.Second)
+	}
 
 	ws, err := api.WS(ctx, nil, "")
 	if err != nil {
