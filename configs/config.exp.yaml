@@ -1,3 +1,5 @@
+app:
+  sandbox: true
 bot:
   appid: 000000000
   token:
