@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package adams.conf;
+
+option go_package = "github.com/maggot-code/sxwz-bot/internal/conf;conf";
+
+message Bootstrap { Bot bot = 2; }
+
+message Bot {
+  int64 appid = 1;
+  string token = 2;
+  string secret = 3;
+}
