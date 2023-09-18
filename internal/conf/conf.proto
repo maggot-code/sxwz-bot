@@ -4,7 +4,12 @@ package adams.conf;
 
 option go_package = "github.com/maggot-code/sxwz-bot/internal/conf;conf";
 
-message Bootstrap { Bot bot = 2; }
+message Bootstrap {
+  App app = 1;
+  Bot bot = 2;
+}
+
+message App { bool sandbox = 1; }
 
 message Bot {
   int64 appid = 1;
