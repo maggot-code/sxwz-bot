@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2023-09-19 04:15:41
  * @LastEditors: maggot-code
- * @LastEditTime: 2023-09-19 04:20:26
+ * @LastEditTime: 2023-09-19 04:31:06
  * @Description:
  */
 package handler
@@ -23,12 +23,5 @@ func NewReadyHandler() event.ReadyHandler {
 func NewErrorNotifyHandler() event.ErrorNotifyHandler {
 	return func(err error) {
 		log.Error(err)
-	}
-}
-
-func NewPlainEventHandler() event.PlainEventHandler {
-	return func(event *dto.WSPayload, message []byte) error {
-		log.Info("plain handler")
-		return nil
 	}
 }
