@@ -25,6 +25,7 @@ wire_gen.go
 *.http
 *.pb.go
 go.work
+go.work.sum
 go.sum
 buf.lock
 tmp

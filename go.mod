@@ -3,6 +3,7 @@ module github.com/maggot-code/sxwz-bot
 go 1.21.0
 
 require (
+	github.com/google/wire v0.5.0
 	github.com/spf13/viper v1.16.0
 	github.com/tencent-connect/botgo v0.1.6
 	google.golang.org/protobuf v1.30.0
