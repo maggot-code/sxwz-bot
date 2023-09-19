@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2023-09-18 10:16:19
  * @LastEditors: maggot-code
- * @LastEditTime: 2023-09-19 04:36:01
+ * @LastEditTime: 2023-09-19 07:36:26
  * @Description:
  */
 package gateway
@@ -56,4 +56,10 @@ func NewGateway(c *conf.Bootstrap) *Gateway {
 
 func (gw *Gateway) Start(intent dto.Intent) error {
 	return botgo.NewSessionManager().Start(gw.ws, gw.token, &intent)
+}
+
+func (gw *Gateway) PostMessage(channelID string, msg *dto.MessageToCreate) error {
+	_, err := gw.api.PostMessage(gw.ctx, channelID, msg)
+
+	return err
 }

@@ -1,5 +1,7 @@
 app:
   sandbox: true
+observe:
+  - 0000000000
 bot:
   appid: 000000000
   token:
